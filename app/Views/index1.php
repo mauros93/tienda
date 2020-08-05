@@ -5,18 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <!-- <link rel="icon" type="image/png" href="" id="icon"/> -->
-    <link rel="stylesheet" href=<?= base_url("public/styles/style.css")?>>
+    <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />    
     <title>Tecno expres</title>
 </head>
-<body>
+<body class="">
 
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg text-light" >
-            <a class="navbar-brand mx-5" href="index">
-                <img src="https://scontent.feoh3-1.fna.fbcdn.net/v/t1.15752-9/116585514_636757907223751_7958454312908454227_n.jpg?_nc_cat=101&_nc_sid=b96e70&_nc_ohc=eEoAfkg8zN0AX-fLkMG&_nc_ht=scontent.feoh3-1.fna&oh=5c4b7a647e7a24427ecac31f7f363c4b&oe=5F4DF57B" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-                TecnoExpress
-            </a>  
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand mx-5" href="ProductController/buscar">TecnoExpress</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -33,23 +30,29 @@
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-shopping-cart"></i>      
                 </button>
-                <div class="dropdown-menu dropdown-menu-lg-right mx-5" id="boton-carrito">
+                <div class="dropdown-menu dropdown-menu-lg-right mx-5">
                     <table class="table" id='lista-carrito'>
                         <thead>
                             <tr>              
-                            <th scope="col" class="pr-5"><h4>Referencia</h4></th>
-                            <th scope="col" class="pr-5"><h4>Precio</h4></th>
-                            <th scope="col"><h4>Eliminar</h4></th>
+                            <th scope="col" class="mx-5">Referencia</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Eliminar</th>
                             </tr>
                         </thead>
-                        <tbody id='numero-productos'>                                                        
-                        </tbody>                        
-                    </table>    
-                    <span></span>                
+                        <tbody>                                                        
+                        </tbody>
+                    </table>                    
                 </div>
             </div>
         </nav>        
-    </div>    
+    </div> 
+    
+
+
+   
+    
+
+    
 
 
 
@@ -88,66 +91,15 @@
         </div>
     </div>
 
+    <div class="row justify-content-center">
+    <h1 class="text-center display-4 col-10 my-5">Lo sentimos, este articulo no lo tenemos disponible en el momento, pero no te preocupes muy pronto lo tendremos!!!</h1>
+    </div>
+    
+    
 
 
-       
-    <div class="container" id="lista-productos">
-        <div class="row justify-content-center">    
-        <h1 class="text-center display-4 col-10 my-5">Nuestros Productos</h1>   
-            <div class="card mb-3 col-8">
-                <!-- <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6417/6417707_sd.jpg;maxHeight=200;maxWidth=300" class="card-img" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <h4>$3.124.234</h4>
-                                <button class="btn btn-primary mt-2">Agregar al carrito</button>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>  -->
-                
-                <?php
-                foreach($productos as $producto){                    
-                    echo '<div class="row no-gutters">';
-                    echo '<div class="col-md-4">';
-                    echo '<img src='.$producto['link_imagen'].' class="card-img-top" alt="...">';
-                    echo '</div>';
-                    echo '<div class="col-md-8">';                    
-                    echo '<div class="card-body">';
-                    echo '<h5 class="card-title">'.$producto['referencia'].'</h5>';
-                    echo '<p class="card-text">'.$producto['descripcion'].'</p>';
-                    echo '<h4>'.'$ '. number_format($producto['precio']).'</h4>';
-                    echo '<button class="btn btn-primary mt-2 comprar-producto">Agregar al carrito</button>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '<hr>';        
-                }
-                ?>
+    <div class="mod">
 
-                <?php //foreach($productos as $producto):?>
-                    <!-- <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6417/6417707_sd.jpg;maxHeight=200;maxWidth=300" class="card-img" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <h4>$3.124.234</h4>
-                                <button class="btn btn-primary mt-2">Agregar al carrito</button>
-                            </div>
-                        </div>
-                    </div> -->
-                <?php //endforeach?>
-
-                
-            </div>
-        </div>
     </div>
 
 
@@ -171,19 +123,18 @@
                     <p><i class="fas fa-phone-alt mx-2"></i>+34 234-5678</p>
                     <p><i class="far fa-envelope mx-2"></i>tecnoexpresss@gmail.com</p>
                     <p><i class="far fa-building mx-2"></i>Medelin Carrera 48 # 50-33</p>
-                </div>           
+
+
+                </div>
+
+            
         </div>
-    </footer>
-
-
-
-
-    
+    </footer>   
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script> 
-    <script src=<?= base_url("public/scripts/index.js")?>></script>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>

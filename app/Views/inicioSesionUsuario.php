@@ -23,7 +23,7 @@
     
     <div class="container">    
       <div class="row justify-content-center">
-        <form class="col-6" method="post" action="UserController/iniciarSesion">
+        <form class="col-6" method="post" action=<?= base_url("public/ProductController/iniciarSesion") ?>>
             <div class="form-group">
                 <label for="exampleInputEmail1">Correo</label>
                 <input type="email" name="correo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
