@@ -1,13 +1,13 @@
 .icon{
-    font-size: 35px;
+    font-size: 50px;
 }
 
 .navbar{
     background-color: black;
 }
 
-.cuerpo{
-    background-color: aliceblue;
+body{
+    background-color: #bbdefb;
 }
 
 .borrar{

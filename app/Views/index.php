@@ -11,10 +11,10 @@
 </head>
 <body>
 
-    <div class="container-fluid">
+    
         <nav class="navbar navbar-expand-lg text-light" >
             <a class="navbar-brand mx-5" href="index">
-                <img src="https://scontent.feoh3-1.fna.fbcdn.net/v/t1.15752-9/116585514_636757907223751_7958454312908454227_n.jpg?_nc_cat=101&_nc_sid=b96e70&_nc_ohc=eEoAfkg8zN0AX-fLkMG&_nc_ht=scontent.feoh3-1.fna&oh=5c4b7a647e7a24427ecac31f7f363c4b&oe=5F4DF57B" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                <img src="https://scontent.feoh3-1.fna.fbcdn.net/v/t1.15752-9/116585514_636757907223751_7958454312908454227_n.jpg?_nc_cat=101&_nc_sid=b96e70&_nc_ohc=eEoAfkg8zN0AX-fLkMG&_nc_ht=scontent.feoh3-1.fna&oh=5c4b7a647e7a24427ecac31f7f363c4b&oe=5F4DF57B" width="40" height="40" class="d-inline-block align-top" alt="" loading="lazy">
                 TecnoExpress
             </a>  
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,7 @@
                 </div>
             </div>
         </nav>        
-    </div>    
+        
 
 
 
@@ -94,7 +94,7 @@
     <div class="container" id="lista-productos">
         <div class="row justify-content-center">    
         <h1 class="text-center display-4 col-10 my-5">Nuestros Productos</h1>   
-            <div class="card mb-3 col-8">
+            <div class="card mb-3 col-8 " style="background-color: #9fa8da;">
                 <!-- <div class="row no-gutters">
                         <div class="col-md-4">
                             <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6417/6417707_sd.jpg;maxHeight=200;maxWidth=300" class="card-img" alt="...">
@@ -158,13 +158,7 @@
                     <a href="#"><i class="fab fa-facebook mx-3 icon"></i></a>
                     <a href=""><i class="fab fa-twitter mx-3 icon"></i></a>
                     <a href=""><i class="fab fa-instagram mx-3 icon"></i></a>
-                </div>   
-                <div class="col-3">
-                    <h2 class="my-3">Siguenos</h2>
-                    <a href="#"><i class="fab fa-facebook mx-3 icon"></i></a>
-                    <a href=""><i class="fab fa-twitter mx-3 icon"></i></a>
-                    <a href=""><i class="fab fa-instagram mx-3 icon"></i></a>
-                </div>                
+                </div>                                  
                 <div class="col-3">
                     <h2 class="my-3">Contactanos</h2>
                     <p><i class="fas fa-mobile-alt mx-2"></i>+57 300-111-2222</p>
