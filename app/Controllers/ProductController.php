@@ -27,9 +27,7 @@ class ProductController extends BaseController
         // print_r($productos);      
         if(count($productos) == 0){
                 $productos = $producto->where('referencia', $busqueda)->findAll();  
-                print_r($productos);
                 if(count($productos) == 0){
-                        print_r($productos);
                         return view('index1');
                 }             
         };
@@ -51,18 +49,17 @@ class ProductController extends BaseController
         function ingresarProducto(){
                 $producto = new ProductModel();
                 $precio = $this->request->getPost('precio');
-                $marca = $this->request->getPost('marca');
-                $referencia = $this->request->getPost('referencia');
-                $descripcion = $this->request->getPost('descripcion');
+                $marca = ucfirst($this->request->getPost('marca'));
+                $referencia = ucfirst($this->request->getPost('referencia'));
+                $descripcion = ucfirst($this->request->getPost('descripcion'));
                 $cantidad = $this->request->getPost('cantidad');
-                $link_imagen = $this->request->getPost('link_imagen');
+                $link_imagen =  $this->request->getPost('link_imagen');
                 $datosProducto = ['precio' => $precio, 'marca' => $marca, 'referencia' => $referencia, 'descripcion' => $descripcion,'cantidad' => $cantidad, 'link_imagen' => $link_imagen];
                 // if($producto->save($datosProducto) === false){
                 //         print_r ($producto->errors());   
                 // }
-                $producto->save($datosProducto);
-                print_r($datosProducto);
-                $productos = ['productos' => $producto->findAll()];
+                $producto->save($datosProducto);                
+                $productos = ['productos' => $producto->orderBy('id_producto', 'DESC')->findAll()];
                 return view('ingresarproducto', $productos);
         }
 
@@ -80,15 +77,14 @@ class ProductController extends BaseController
 
         function actualizarProducto($id){
                 $producto = new ProductModel();
-                $marca = $this->request->getPost('marca');
-                $referencia = $this->request->getPost('referencia');
+                $marca = ucfirst($this->request->getPost('marca'));
+                $referencia = ucfirst($this->request->getPost('referencia'));
                 $precio = $this->request->getPost('precio');
                 $cantidad = $this->request->getPost('cantidad');
-                $descripcion = $this->request->getPost('descripcion');
+                $descripcion = ucfirst($this->request->getPost('descripcion'));
                 $datos = ['marca' => $marca, 'referencia' => $referencia, 'precio' => $precio, 'cantidad' => $cantidad, 'descripcion' => $descripcion];
-                $producto->update($id, $datos);
-                $productos = ['productos' => $producto->findAll()];
-                
+                $producto->update($id, $datos);                
+                $productos = ['productos' => $producto->findAll()];                
                 return view('ingresarproducto', $productos);
                 
         }
@@ -102,26 +98,32 @@ class ProductController extends BaseController
                 // echo $correo . "  " . $contraseña;
                 print_r($usuario->errors());
                 $usuario = $usuario->where('correo', "$correo")->findAll();
-                if(count($usuario) == 0){
-                        echo 'El correo no se encuentra registrado';
+                if(count($usuario) == 0){                        
+                        echo "<script>";
+                        echo "alert('El correo no se encuentra registrado intenta de nuevo o registrate')";                        
+                        echo "</script>";
+                        return view('iniciarSesionUsuario');
                 }
                 else{
                         if($usuario[0]['contraseña'] == $contraseña){
-                        echo $usuario['contraseña'];
-                        echo "Bienvenido ". $usuario[0]['nombre'];                        
-                        $productos = ['productos' => $producto->findAll()];
-                
-                        return view('index', $productos);
+                                echo "<script>";
+                                echo "alert('Has iniciado sesion Correctamente')";
+                                echo "</script>";                      
+                                $productos = ['productos' => $producto->findAll()];                
+                                return view('index', $productos);
                         }
-                        else{
-                        echo "Contraseña erronea";
+                        else{                                
+                                echo "<script>";
+                                echo "alert('La clave es incorrecta');";
+                                echo "</script>";
+                                return view('iniciarSesionUsuario');
                         }
                 }  
 
         }
 
         public function vistaIniciarSesion(){
-                return view('inicioSesionUsuario');
+                return view('iniciarSesionUsuario');
     
 	}
 }

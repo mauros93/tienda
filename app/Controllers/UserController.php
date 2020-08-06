@@ -9,20 +9,20 @@ class UserController extends BaseController
 
 	public function index()
 	{
-    return view('inicioSesionUsuario');
+    return view('iniciarSesionUsuario');
     
     }
     
     public function registrarUsuario(){
         $usuario = new UserModel();
-        $nombres = $this->request->getPost('nombres');
-        $correo = $this->request->getPost('correo');
+        $nombres = ucwords(strtolower($this->request->getPost('nombres')));
+        $correo = strtolower($this->request->getPost('correo'));
         $telefono = $this->request->getPost('telefono');
         $contraseña = $this->request->getPost('contraseña');
         $contraseña1 = $this->request->getPost('contraseña1');
-        $pais = $this->request->getPost('pais');
-        $ciudad = $this->request->getPost('ciudad');
-        $direccion = $this->request->getPost('direccion');   
+        $pais = ucwords(strtolower($this->request->getPost('pais')));
+        $ciudad = ucwords(strtolower($this->request->getPost('ciudad')));
+        $direccion = ucwords(strtolower($this->request->getPost('direccion')));   
         $datosUsuario=['nombres' => $nombres, 'correo' => $correo, 'telefono' => $telefono, 'contraseña' => $contraseña, 'cfm_contraseña' => $contraseña1, 'pais' => $pais, 'ciudad' => $ciudad, 'direccion' => $direccion];        
         $usuario->save($datosUsuario);
         $usuarios = ['usuarios' => $usuario->findAll()];
@@ -32,16 +32,15 @@ class UserController extends BaseController
 
     public function actualizarUsuario($id){
         $usuario = new UserModel();
-        $nombres = $this->request->getPost('nombres');
-        $correo = $this->request->getPost('correo');
+        $nombres = ucwords(strtolower($this->request->getPost('nombres')));
+        $correo = strtolower($this->request->getPost('correo'));
         $telefono = $this->request->getPost('telefono');
         $contraseña = $this->request->getPost('contraseña');
         $contraseña1 = $this->request->getPost('contraseña1');
-        $pais = $this->request->getPost('pais');
-        $ciudad = $this->request->getPost('ciudad');
-        $direccion = $this->request->getPost('direccion');   
+        $pais = ucwords(strtolower($this->request->getPost('pais')));
+        $ciudad = ucwords(strtolower($this->request->getPost('ciudad')));
+        $direccion = ucwords(strtolower($this->request->getPost('direccion')));   
         $datosUsuario=['nombres' => $nombres, 'correo' => $correo, 'telefono' => $telefono, 'contraseña' => $contraseña, 'cfm_contraseña' => $contraseña1, 'pais' => $pais, 'ciudad' => $ciudad, 'direccion' => $direccion];    
-        print_r($datosUsuario);    
         $usuario->update($id, $datosUsuario);        
         $usuarios = ['usuarios' => $usuario->findAll()];
         return view('registroUsuario', $usuarios);

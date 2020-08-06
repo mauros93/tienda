@@ -18,7 +18,7 @@ class UserModel extends Model
     // protected $deletedField  = 'deleted_at';
 
     protected $validationRules    = [
-        'correo' => 'required|valid_email|is_unique[usuario.correo]'
+        // 'correo' => 'required|valid_email|is_unique[usuario.correo]'
     ];
     protected $validationMessages = [];
     protected $skipValidation     = false;

@@ -1,0 +1,34 @@
+.fondo{
+    background-color: 03D4E5;
+}
+.descripciones{
+    margin-top: 100px;
+}
+.cards{
+    margin: initial;
+}
+.icon{
+    font-size: 50px;
+}
+
+.navbar{
+    background-color: #351D4B;
+}
+
+body{
+    background-color: #bbdefb;
+}
+
+.borrar{
+    color: red;
+}
+
+.icon1{
+    font-size: 25px;
+}
+
+footer {background-color: #351D4B;}
+
+.letraB {
+    color: white;
+    }

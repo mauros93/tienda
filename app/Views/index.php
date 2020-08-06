@@ -13,7 +13,7 @@
 
     
         <nav class="navbar navbar-expand-lg text-light" >
-            <a class="navbar-brand mx-5" href="index">
+            <a class="navbar-brand mx-5 text-light" href="index">
                 <img src="https://scontent.feoh3-1.fna.fbcdn.net/v/t1.15752-9/116585514_636757907223751_7958454312908454227_n.jpg?_nc_cat=101&_nc_sid=b96e70&_nc_ohc=eEoAfkg8zN0AX-fLkMG&_nc_ht=scontent.feoh3-1.fna&oh=5c4b7a647e7a24427ecac31f7f363c4b&oe=5F4DF57B" width="40" height="40" class="d-inline-block align-top" alt="" loading="lazy">
                 TecnoExpress
             </a>  
@@ -24,16 +24,17 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">                
                 <form class="form-inline my-2 my-lg-0" method="post" action="ProductController/buscar">
                 <input class="form-control mr-sm-1" type="search" name="buscar" placeholder="¿Que deseas comprar?">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
                 </form>
-            </div>            
-            <button class="btn btn-primary mx-3">Registrarse</button>
-            <button class="btn btn-outline-primary mx-3" ><a href=""></a> Iniciar sesion</button>
+            </div id="usuario">            
+                <a class="btn btn-light mr-3" href="<?= base_url("public/UserController/registrarUsuario")?>">Registrarse</a>  
+                <a class="btn btn-outline-light mr-5" href="<?= base_url("public/UserController")?>">Iniciar sesion</a>
+                <a class="btn btn-light " href="<?= base_url("public/home/blog")?>">Blog</a>  
             <div class="btn-group mx-5">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-shopping-cart"></i>      
                 </button>
-                <div class="dropdown-menu dropdown-menu-lg-right mx-5" id="boton-carrito">
+                <div class="dropdown-menu dropdown-menu-lg-right mr-5" id="boton-carrito">
                     <table class="table" id='lista-carrito'>
                         <thead>
                             <tr>              
@@ -93,28 +94,15 @@
        
     <div class="container" id="lista-productos">
         <div class="row justify-content-center">    
-        <h1 class="text-center display-4 col-10 my-5">Nuestros Productos</h1>   
-            <div class="card mb-3 col-8 " style="background-color: #9fa8da;">
-                <!-- <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6417/6417707_sd.jpg;maxHeight=200;maxWidth=300" class="card-img" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <h4>$3.124.234</h4>
-                                <button class="btn btn-primary mt-2">Agregar al carrito</button>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>  -->
+        <h1 class="text-center col-10 my-5">Nuestros Productos</h1>   
+            <div class="card mb-3 col-8" style="background-color: rgba(247, 243, 243, 0.877)
+">                
                 
                 <?php
                 foreach($productos as $producto){                    
-                    echo '<div class="row no-gutters">';
+                    echo '<div class="row no-gutters my-3">';
                     echo '<div class="col-md-4">';
-                    echo '<img src='.$producto['link_imagen'].' class="card-img-top" alt="...">';
+                    echo '<img src='.$producto['link_imagen'].' class="card-img-top img-fluid" alt="...">';
                     echo '</div>';
                     echo '<div class="col-md-8">';                    
                     echo '<div class="card-body">';
@@ -151,15 +139,18 @@
     </div>
 
 
-    <footer class="container-fluid my-3 bg-light">
+    <footer class="container-fluid mt-5 text-light">
         <div class="row justify-content-around">             
-                <div class="col-3">
-                    <h2 class="my-3">Siguenos</h2>
-                    <a href="#"><i class="fab fa-facebook mx-3 icon"></i></a>
+                <div class="col-3 align-items-center">
+                    <h2 class="mt-4 text-center">Siguenos</h2>
+                    <a href=""><i class="fab fa-facebook mx-3 icon"></i></a>
                     <a href=""><i class="fab fa-twitter mx-3 icon"></i></a>
                     <a href=""><i class="fab fa-instagram mx-3 icon"></i></a>
-                </div>                                  
-                <div class="col-3">
+                </div>   
+                <div class="col-3 text-center mt-4">
+                    <p>Copyright © 2020 Tienda TecnoExpress. Todos los derechos son de Alejandro Vásquez, Mauricio Builes, Alejandra Carreño, Yuli Toro y Juan Gallego, en su página de ventas. La página tecnoexpress.com es NO OFICIAL, damos todos los derechos de las imágenes a las marcas y nuestros proveedores independientes</p>
+                </div>            
+                <div class="col-3 mt-3">
                     <h2 class="my-3">Contactanos</h2>
                     <p><i class="fas fa-mobile-alt mx-2"></i>+57 300-111-2222</p>
                     <p><i class="fas fa-phone-alt mx-2"></i>+34 234-5678</p>

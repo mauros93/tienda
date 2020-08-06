@@ -2,11 +2,16 @@
 
 class Home extends BaseController
 {
-	public function index()
+	public function nosotros()
 	{
-		return view('index');
+		return view('acerca');
 	}
 
-	//--------------------------------------------------------------------
+	public function blog()
+	{
+		return view('blog');
+	}
+
+	
 
 }

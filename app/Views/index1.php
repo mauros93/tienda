@@ -11,6 +11,44 @@
 </head>
 <body class="">
 
+    <nav class="navbar navbar-expand-lg text-light" >
+        <a class="navbar-brand mx-5" href="index">
+            <img src="https://scontent.feoh3-1.fna.fbcdn.net/v/t1.15752-9/116585514_636757907223751_7958454312908454227_n.jpg?_nc_cat=101&_nc_sid=b96e70&_nc_ohc=eEoAfkg8zN0AX-fLkMG&_nc_ht=scontent.feoh3-1.fna&oh=5c4b7a647e7a24427ecac31f7f363c4b&oe=5F4DF57B" width="40" height="40" class="d-inline-block align-top" alt="" loading="lazy">
+            TecnoExpress
+        </a>  
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">                
+            <form class="form-inline my-2 my-lg-0" method="post" action="ProductController/buscar">
+            <input class="form-control mr-sm-1" type="search" name="buscar" placeholder="¿Que deseas comprar?">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+        </div id="usuario">            
+            <a class="btn btn-light mr-3" href="<?= base_url("public/UserController/registrarUsuario")?>">Registrarse</a>  
+            <a class="btn btn-outline-light mr-5" href="<?= base_url("public/UserController")?>">Iniciar sesion</a>
+        <div class="btn-group mx-5">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-shopping-cart"></i>      
+            </button>
+            <div class="dropdown-menu dropdown-menu-lg-right mx-5" id="boton-carrito">
+                <table class="table" id='lista-carrito'>
+                    <thead>
+                        <tr>              
+                        <th scope="col" class="pr-5"><h4>Referencia</h4></th>
+                        <th scope="col" class="pr-5"><h4>Precio</h4></th>
+                        <th scope="col"><h4>Eliminar</h4></th>
+                        </tr>
+                    </thead>
+                    <tbody id='numero-productos'>                                                        
+                    </tbody>                        
+                </table>    
+                <span></span>                
+            </div>
+        </div>
+    </nav> 
+
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand mx-5" href="ProductController/buscar">TecnoExpress</a>

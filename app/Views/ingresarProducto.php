@@ -11,18 +11,19 @@
 </head>
 <body>
 
-    <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg d-flex justify-content-between">
-            <a class="navbar-brand mx-5" href="index">
-                <img src="https://scontent.feoh3-1.fna.fbcdn.net/v/t1.15752-9/116433772_862547847607346_8378317078528175007_n.jpg?_nc_cat=104&_nc_sid=b96e70&_nc_ohc=vOKEvo8u99QAX_U6zZY&_nc_ht=scontent.feoh3-1.fna&oh=82ef9cae8dff28710748bda4ff03f543&oe=5F4FE4AF" width="40" height="40" class="d-inline-block align-top" alt="" loading="lazy">
-                TecnoExpress
-            </a>
-            <div class="">
-            <button class="btn btn-primary mx-3">Registrarse</button>
-            <button class="btn btn-outline-primary mx-3" ><a href=""></a>Iniciar sesion</button>            
-            </div>
-        </nav>        
-    </div> 
+    
+    <nav class="navbar navbar-expand-lg d-flex justify-content-between">
+        <a class="navbar-brand mx-5 text-light" href="index">
+            <img src="https://scontent.feoh3-1.fna.fbcdn.net/v/t1.15752-9/116433772_862547847607346_8378317078528175007_n.jpg?_nc_cat=104&_nc_sid=b96e70&_nc_ohc=vOKEvo8u99QAX_U6zZY&_nc_ht=scontent.feoh3-1.fna&oh=82ef9cae8dff28710748bda4ff03f543&oe=5F4FE4AF" width="40" height="40" class="d-inline-block align-top" alt="" loading="lazy" class="text-light">
+            TecnoExpress
+        </a>
+        <div class="">
+        <a class="btn btn-light mr-3" href="<?= base_url("public/UserController/registrarUsuario")?>">Registrarse</a>  
+        <a class="btn btn-outline-light mr-5" href="<?= base_url("public/UserController")?>">Iniciar sesion</a>
+        
+        </div>
+    </nav>        
+    
     
     
 
@@ -33,22 +34,22 @@
                 <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Marca</label>
-                    <input type="text" name="marca" class="form-control" id="inputPassword4">
+                    <input type="text" name="marca" class="form-control" id="inputPassword4" required>
                     </div>
                     <div class="form-group col-md-6">
                     <label for="inputEmail4">Referencia</label>
-                    <input type="text" name="referencia" class="form-control" id="inputEmail4">
+                    <input type="text" name="referencia" class="form-control" id="inputEmail4" required>
                     </div>
                                        
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Precio</label>
-                        <input type="number" name="precio" class="form-control" id="inputEmail4">
+                        <input type="number" name="precio" class="form-control" id="inputEmail4" required>
                     </div>                     
                     <div class="form-group col-md-6">
                         <label for="inputPassword4">Cantidad</label>
-                        <input type="number" name="cantidad" class="form-control" id="inputPassword4">
+                        <input type="number" name="cantidad" class="form-control" id="inputPassword4" required>
                     </div>
                 </div>
                 <div class="mb-3">
@@ -57,7 +58,7 @@
                 </div>
                 <div class="form-group">
                     <label for="inputAddress2">Link Imagen</label>
-                    <input type="text" name="link_imagen" class="form-control" id="inputAddress2">
+                    <input type="text" name="link_imagen" class="form-control" id="inputAddress2" required>
                 </div>
                        
                 <button type="submit" class="btn btn-primary">Agregar producto</button>
@@ -69,13 +70,13 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-10">
-                <table id="example" class="table table-striped table-bordered" style="width:100%">
-                    <thead class="bg-primary">
+                <table id="example" class="table table-striped table-bordered"  style="background-color: rgba(247, 243, 243, 0.877)">
+                    <thead class="bg-light">
                         <tr>
                             <th>Marca</th>
                             <th>Referencia</th>
                             <th>Descripcion</th>
-                            <th>precio</th>
+                            <th>Precio</th>
                             <th>cantidad</th>                            
                             <th>Borrar</th>                            
                             <th>Actualizar</th>                            
@@ -86,7 +87,7 @@
                             <td><?php echo $producto['marca'] ?></td>
                             <td><?php echo $producto['referencia'] ?></td>
                             <td><?php echo $producto['descripcion'] ?></td>
-                            <td><?php echo number_format($producto['precio']) ?></td>                            
+                            <td><?php echo '$'.number_format($producto['precio']) ?></td>                            
                             <td><?php echo $producto['cantidad'] ?></td>
                             <td><a class="btn btn-danger text-light" type="button" data-toggle="modal" data-target=<?= '#mm'.$producto['id_producto'] ?>><i class="fas fa-trash"></a></td>
                             <td><a class="btn btn-success text-light" type="button" data-toggle="modal" data-target=<?= '#m'.$producto['id_producto'] ?>><i class="fas fa-pencil-alt"></i></a></td>                            
@@ -115,8 +116,8 @@
                         <div class="modal" tabindex="-1" role="dialog" id=<?= 'm'.$producto['id_producto'] ?>>
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title bg-primary">Actualizar producto</h5>
+                                <div class="modal-header bg-primary ">
+                                    <h5 class="modal-title ">Actualizar producto</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                     </button>
@@ -140,7 +141,7 @@
                                         </div> 
                                         <div class="mb-3">  
                                             <label for="validationDefault02">Descripcion</label>                      
-                                            <textarea class="form-control" name="descripcion" id="validationTextarea" value="<?= $producto['descripcion'] ?>" required></textarea>
+                                            <textarea class="form-control" name="descripcion" id="validationTextarea" required><?= $producto['descripcion'] ?></textarea>
                                         </div>                                                           
                                         <button type="submit" class="btn btn-primary">Actualizar datos</button>
                                     </form>
@@ -157,7 +158,7 @@
                             <th>Marca</th>
                             <th>Referencia</th>
                             <th>Descripcion</th>
-                            <th>precio</th>
+                            <th>Precio</th>
                             <th>cantidad</th>                            
                             <th>Borrar</th>                            
                             <th>Actualizar</th>
@@ -174,21 +175,18 @@
 
 
 
-    <footer class="container-fluid my-3 bg-light">
+    <footer class="container-fluid mt-5 text-light">
         <div class="row justify-content-around">             
                 <div class="col-3">
-                    <h2 class="my-3">Siguenos</h2>
-                    <a href="#"><i class="fab fa-facebook mx-3 icon"></i></a>
-                    <a href=""><i class="fab fa-twitter mx-3 icon"></i></a>
-                    <a href=""><i class="fab fa-instagram mx-3 icon"></i></a>
+                    <h2 class="mt-4">Siguenos</h2>
+                    <a href="#"><i class="fab fa-facebook mx-3 mt-3 icon"></i></a>
+                    <a href=""><i class="fab fa-twitter mx-3 mt-3 icon"></i></a>
+                    <a href=""><i class="fab fa-instagram mx-3 mt-3 icon"></i></a>
                 </div>   
-                <div class="col-3">
-                    <h2 class="my-3">Siguenos</h2>
-                    <a href="#"><i class="fab fa-facebook mx-3 icon"></i></a>
-                    <a href=""><i class="fab fa-twitter mx-3 icon"></i></a>
-                    <a href=""><i class="fab fa-instagram mx-3 icon"></i></a>
-                </div>                
-                <div class="col-3">
+                <div class="col-3 text-center mt-5">
+                    <p>Copyright © 2020 Tienda TecnoExpress. Todos los derechos son de Alejandro Vásquez, Mauricio Builes, Alejandra Carreño, Yuli Toro y Juan Gallego, en su página de ventas. La página tecnoexpress.com es NO OFICIAL, damos todos los derechos de las imágenes a las marcas y nuestros proveedores independientes</p>
+                </div>            
+                <div class="col-3 mt-4">
                     <h2 class="my-3">Contactanos</h2>
                     <p><i class="fas fa-mobile-alt mx-2"></i>+57 300-111-2222</p>
                     <p><i class="fas fa-phone-alt mx-2"></i>+34 234-5678</p>
